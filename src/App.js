@@ -1,10 +1,10 @@
-import './App.css';
+import "./App.css";
+import Profile from "./components/Profile";
 
 function App() {
   return (
     <div className="App">
-      React App
-   
+      <Profile />
     </div>
   );
 }
