@@ -1,10 +1,15 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
+import {
+  updateName,
+  updateEmail,
+  updateJoke,
+} from "../actionTypes/ActionTypes";
+import Button from "../buttons/Button";
+import { Update_Email,Update_Name , Update_Joke } from "../buttonTexts/ButtonText";
 
 function Profile() {
   const { name, email, joke } = useSelector((state) => state);
-  console.warn(joke);
-  const dispatch = useDispatch();
   return (
     <div>
       <h1>I am {name}</h1>
@@ -13,18 +18,10 @@ function Profile() {
       <br />
       <br />
       <br />
-
-      <button onClick={() => dispatch({ type: "UPDATE_NAME" })}>
-        Update NAME
-      </button>
-      <button onClick={() => dispatch({ type: "UPDATE_EMAIL" })}>
-        Update EMAIL
-      </button>
-      <button onClick={() => dispatch({ type: "UPDATE_JOKE" })}>
-        Update JOKE
-      </button>
+      <Button buttonText={Update_Name} actionType={updateName} />
+      <Button buttonText={Update_Email} actionType={updateEmail} />
+      <Button buttonText={Update_Joke} actionType={updateJoke} />
     </div>
   );
 }
-
 export default Profile;

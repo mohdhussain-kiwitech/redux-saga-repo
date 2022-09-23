@@ -1,19 +1,21 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { initialState } from "./utils";
+import {
+  updateNameSuccess,
+  updateEmailSuccess,
+  updateCommentSuccess,
+} from "../actionTypes/ActionTypes"; 
 
-const initialState = {
-  name: "Anas",
-  email: "",
-  joke: "Your joke is",
-};
+
 
 const userReducer = createReducer(initialState, (builder) => {
-  builder.addCase("UPDATE_NAME_SUCCESS", (state, action) => {
+  builder.addCase(updateNameSuccess, (state, action) => {
     state.name = action.payload;
   });
-  builder.addCase("UPDATE_EMAIL_SUCCESS", (state, action) => {
+  builder.addCase(updateEmailSuccess, (state, action) => {
     state.email = action.payload;
   });
-  builder.addCase("UPDATE_COMMENT_SUCCESS", (state, action) => {
+  builder.addCase(updateCommentSuccess, (state, action) => {
     state.joke = action.payload;
   });
 });
